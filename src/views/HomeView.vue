@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <h1>Kira Box</h1>
+    <p class="description">
+      Kira Box is a collection of my web tools, all developed out of personal
+      interest. You can click the app icon in the top right corner to choose a
+      tool, or click the info icon to view the About page.
+    </p>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
-export default defineComponent({
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
-});
-</script>
+<style scoped>
+.home {
+  padding: 2rem;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.description {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+</style>

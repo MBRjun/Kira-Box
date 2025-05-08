@@ -8,9 +8,15 @@ dependencies:
   core-js:
     specifier: ^3.8.3
     version: 3.42.0
+  material-design-icons-iconfont:
+    specifier: ^6.7.0
+    version: 6.7.0
   vue:
     specifier: ^3.2.13
     version: 3.5.13(typescript@4.5.5)
+  vue-recaptcha-v3:
+    specifier: ^2.0.1
+    version: 2.0.1(vue@3.5.13)
   vue-router:
     specifier: ^4.0.3
     version: 4.5.1(vue@3.5.13)
@@ -5040,6 +5046,10 @@ packages:
       semver: 6.3.1
     dev: true
 
+  /material-design-icons-iconfont@6.7.0:
+    resolution: {integrity: sha512-lSj71DgVv20kO0kGbs42icDzbRot61gEDBLQACzkUuznRQBUYmbxzEkGU6dNBb5fRWHMaScYlAXX96HQ4/cJWA==}
+    dev: false
+
   /math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
@@ -6070,6 +6080,10 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /recaptcha-v3@1.11.3:
+    resolution: {integrity: sha512-sEE6J0RzUkS+sKEBpgCD/AqCU0ffrAVOADGjvAx9vcttN+VLK42SWMkj/J/I6vHu3Kew+xcfbBqDVb65N0QGDw==}
+    dev: false
+
   /regenerate-unicode-properties@10.2.0:
     resolution: {integrity: sha512-DqHn3DwbmmPVzeKj9woBadqmXxLvQoQIwu7nopMc72ztvxVmVk2SBhSnx67zuye5TP+lJsb/TBQsjLKhnDf3MA==}
     engines: {node: '>=4'}
@@ -7064,6 +7078,15 @@ packages:
       watchpack: 2.4.2
       webpack: 5.99.8
     dev: true
+
+  /vue-recaptcha-v3@2.0.1(vue@3.5.13):
+    resolution: {integrity: sha512-isEDtOfHU4wWRrZZuxciAELtQmPOeEEdicPNa0f1AOyLPy3sCcBEcpFt+FOcO3RQv5unJ3Yn5NlsWtXv9rXqjg==}
+    peerDependencies:
+      vue: ^3.0.11
+    dependencies:
+      recaptcha-v3: 1.11.3
+      vue: 3.5.13(typescript@4.5.5)
+    dev: false
 
   /vue-router@4.5.1(vue@3.5.13):
     resolution: {integrity: sha512-ogAF3P97NPm8fJsE4by9dwSYtDwXIY1nFY9T6DyQnGHd1E2Da94w9JIolpe42LJGIl0DwOHBi8TcRPlPGwbTtw==}
