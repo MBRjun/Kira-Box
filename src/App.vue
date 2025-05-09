@@ -72,6 +72,10 @@ body {
   height: 100%;
 }
 
+button {
+  font-family: "Google Sans Display", sans-serif;
+}
+
 nav {
   padding: 30px;
 }

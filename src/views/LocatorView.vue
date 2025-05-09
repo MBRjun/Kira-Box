@@ -12,12 +12,14 @@
 
     <div class="search-box">
       <h3>Search</h3>
-      <input
-        v-model="searchTerm"
-        placeholder="MAC, IPv6 or SSID"
-        class="search-input"
-      />
-      <button @click="handleQuery" class="submit-btn">Submit</button>
+      <div class="input-group">
+        <input
+          v-model="searchTerm"
+          placeholder="MAC, IPv6 or SSID"
+          class="search-input"
+        />
+        <button @click="handleQuery" class="submit-btn">Submit</button>
+      </div>
     </div>
     <div v-if="result" class="result">
       <h3>Results</h3>
@@ -67,6 +69,12 @@ async function getData(token: string) {
 }
 </script>
 <style scoped>
+.search-box .input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
 .app {
   padding: 2rem;
   text-align: left;
@@ -81,12 +89,12 @@ async function getData(token: string) {
   margin: 2rem 0;
 }
 .search-input {
-  width: 100%;
+  flex-grow: 1;
   padding: 0.8rem;
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin: 0.5rem 0;
+  margin: 0;
 }
 .submit-btn {
   padding: 0.8rem 1.5rem;
@@ -96,6 +104,7 @@ async function getData(token: string) {
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 1rem;
 }
 .submit-btn:hover {
   background: #0056b3;

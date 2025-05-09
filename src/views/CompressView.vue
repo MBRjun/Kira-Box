@@ -9,8 +9,10 @@
     <div class="search-box">
       <h3>File URL</h3>
       <p>File size limit is 10MB.</p>
-      <input v-model="searchTerm" placeholder="URL" class="search-input" />
-      <button @click="handleQuery" class="submit-btn">Submit</button>
+      <div class="input-group">
+        <input v-model="searchTerm" placeholder="URL" class="search-input" />
+        <button @click="handleQuery" class="submit-btn">Submit</button>
+      </div>
     </div>
     <div class="result">
       <h3>Compression Table</h3>
@@ -166,6 +168,12 @@ async function getData(token: string) {
 }
 </script>
 <style scoped>
+.search-box .input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
 .placeholder {
   color: #999;
   font-style: italic;
@@ -198,12 +206,12 @@ thead {
   margin: 2rem 0;
 }
 .search-input {
-  width: 100%;
+  flex-grow: 1;
   padding: 0.8rem;
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin: 0.5rem 0;
+  margin: 0;
 }
 .submit-btn {
   padding: 0.8rem 1.5rem;
@@ -213,6 +221,7 @@ thead {
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 1rem;
 }
 .submit-btn:hover {
   background: #0056b3;
