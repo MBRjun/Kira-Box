@@ -8,6 +8,7 @@ const app = createApp(App);
 app.use(VueReCaptcha, {
   siteKey: "6LeVsgEVAAAAAD_cU1YjriNpXfUAKTaWLCA1MlE1", // Public Key
   loaderOptions: {
+    useRecaptchaNet: true,
     autoHideBadge: true,
     explicitRenderParameters: {
       badge: "bottomright",

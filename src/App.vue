@@ -1,7 +1,30 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view />
+    <main class="content">
+      <router-view />
+    </main>
+    <footer class="recaptcha-notice">
+      <div class="content-container">
+        This site is protected by reCAPTCHA and the Google
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Privacy Policy
+        </a>
+        and
+        <a
+          href="https://policies.google/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Terms of Service
+        </a>
+        apply.
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -67,9 +90,14 @@ body {
   font-family: "Google Sans Display", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Google Sans Display", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
 }
 
 button {
@@ -87,5 +115,28 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+.content {
+  flex: 1;
+  padding: 10px 0;
+}
+
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: left;
+}
+.recaptcha-notice {
+  border-top: 1px solid #eee;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  background: white;
+  font-size: 0.875rem;
+  color: #888;
+}
+.recaptcha-notice a {
+  color: #888;
+  text-decoration: underline;
 }
 </style>
