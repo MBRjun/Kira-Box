@@ -17,8 +17,7 @@
     <div class="result">
       <h3>Compression Table</h3>
       <div v-if="loading" class="loading-status">
-        Running Test (
-        {{ completedTests }}/{{ totalTests }})
+        Running Test ({{ completedTests }}/{{ totalTests }})
       </div>
       <table>
         <thead>
