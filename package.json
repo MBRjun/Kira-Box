@@ -29,7 +29,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
-    "prettier": "^2.4.1",
+    "prettier": "^3.5.3",
     "typescript": "~4.5.5",
     "unplugin-auto-import": "^19.2.0",
     "unplugin-icons": "^22.1.0",
