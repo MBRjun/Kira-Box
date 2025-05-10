@@ -9,12 +9,13 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "material-design-icons-iconfont": "^6.7.0",
     "vue": "^3.2.13",
     "vue-recaptcha-v3": "^2.0.1",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify/json": "^2.2.336",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -28,6 +29,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "prettier": "^2.4.1",
-    "typescript": "~4.5.5"
+    "typescript": "~4.5.5",
+    "unplugin-auto-import": "^19.2.0",
+    "unplugin-icons": "^22.1.0",
+    "unplugin-vue-components": "^28.5.0"
   }
 }

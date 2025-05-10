@@ -2,7 +2,6 @@ import { createApp } from "vue";
 import { VueReCaptcha } from "vue-recaptcha-v3";
 import App from "./App.vue";
 import router from "./router";
-import "material-design-icons-iconfont/dist/material-design-icons.css";
 
 const app = createApp(App);
 app.use(VueReCaptcha, {

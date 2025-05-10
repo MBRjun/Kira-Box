@@ -28,11 +28,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/tools/aplocator",
     name: "AP Locator",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/LocatorView.vue"),
+      import(/* webpackChunkName: "aplocator" */ "../views/LocatorView.vue"),
     meta: {
       title: "AP Locator - Kira Box",
       description:
@@ -42,11 +39,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/tools/compressionratio",
     name: "Compression Ratio",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/CompressView.vue"),
+      import(
+        /* webpackChunkName: "compressionratio" */ "../views/CompressView.vue"
+      ),
     meta: {
       title: "Compression Ratio - Kira Box",
       description:

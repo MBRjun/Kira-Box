@@ -7,11 +7,11 @@
     </div>
     <div class="nav-right">
       <button class="icon-button" @click="toggleTools">
-        <i class="material-icons">apps</i>
+        <IconMdiApps />
       </button>
       <router-link to="/about">
         <button class="icon-button">
-          <i class="material-icons">info</i>
+          <IconMdiInfo />
         </button>
       </router-link>
     </div>
@@ -91,6 +91,11 @@ function closeTools() {
 
 .icon-button:hover {
   opacity: 0.85;
+}
+
+.icon-button svg {
+  vertical-align: middle;
+  transform: translateY(-1px);
 }
 
 .avatar {
