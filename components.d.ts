@@ -11,6 +11,7 @@ declare module 'vue' {
     IconMdiApps: typeof import('~icons/mdi/apps')['default']
     IconMdiInfo: typeof import('~icons/mdi/info')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
+    NotFound: typeof import('./src/components/NotFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

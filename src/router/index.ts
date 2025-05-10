@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import NotFound from "@/components/NotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -48,6 +49,11 @@ const routes: Array<RouteRecordRaw> = [
       description:
         "This tool allows you to view and compare the size and compression time of a document using different levels of Gzip, Brotli, and Zstd compression.",
     },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 

@@ -1,9 +1,12 @@
 import { createApp } from "vue";
+import { createHead } from "@vueuse/head";
 import { VueReCaptcha } from "vue-recaptcha-v3";
 import App from "./App.vue";
 import router from "./router";
 
 const app = createApp(App);
+const head = createHead();
+
 app.use(VueReCaptcha, {
   siteKey: "6LeVsgEVAAAAAD_cU1YjriNpXfUAKTaWLCA1MlE1", // Public Key
   loaderOptions: {
@@ -31,4 +34,5 @@ router.afterEach((to) => {
   }
 });
 app.use(router);
+app.use(head);
 app.mount("#app");
