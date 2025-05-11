@@ -46,6 +46,15 @@
   </div>
 </template>
 <script lang="ts" setup>
+useHead({
+  title: 'Compression Ratio - Kira Box',
+  meta: [
+    {
+      name: 'description',
+      content: 'This tool allows you to view and compare the size and compression time of a document using different levels of Gzip, Brotli, and Zstd compression.',
+    },
+  ],
+})
 import { ref, computed, onMounted } from "vue";
 import { useReCaptcha } from "vue-recaptcha-v3";
 type Algorithm = "gzip" | "brotli" | "zstd";

@@ -9,6 +9,18 @@
   </div>
 </template>
 
+<script lang="ts" setup>
+useHead({
+  title: 'Kira Box',
+  meta: [
+    {
+      name: 'description',
+      content: 'Kira Box is a collection of my web tools, all developed out of personal interest.',
+    },
+  ],
+})
+</script>
+
 <style scoped>
 .home {
   padding: 2rem;

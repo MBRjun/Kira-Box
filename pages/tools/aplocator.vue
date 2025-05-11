@@ -28,6 +28,15 @@
   </div>
 </template>
 <script lang="ts" setup>
+useHead({
+  title: 'AP Locator - Kira Box',
+  meta: [
+    {
+      name: 'description',
+      content: 'This tool can query the SSID and geographical location based on the MAC or IPv6 address.',
+    },
+  ],
+})
 import { ref } from "vue";
 import { useReCaptcha } from "vue-recaptcha-v3";
 const result = ref<string | null>(null);

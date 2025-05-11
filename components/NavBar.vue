@@ -35,6 +35,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import IconMdiApps from '~icons/mdi/apps'
+import IconMdiInfo from '~icons/mdi/info'
 
 const showTools = ref(false);
 

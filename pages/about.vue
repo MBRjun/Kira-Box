@@ -17,6 +17,18 @@
   </div>
 </template>
 
+<script lang="ts" setup>
+useHead({
+  title: 'About - Kira Box',
+  meta: [
+    {
+      name: 'description',
+      content: "Something about Kira Box's development information.",
+    },
+  ],
+})
+</script>
+
 <style scoped>
 .about {
   padding: 2rem;

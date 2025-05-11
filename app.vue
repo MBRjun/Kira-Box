@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div class="layout-container">
     <NavBar />
     <main class="content">
-      <router-view />
+      <NuxtPage />
     </main>
     <footer class="recaptcha-notice">
       <div class="content-container">
@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import NavBar from "./components/NavBar.vue";
+import NavBar from "@/components/NavBar.vue";
 </script>
 
 <style>
@@ -86,18 +86,15 @@ body {
   font-family: "Google Sans Display", sans-serif;
 }
 
-#app {
-  font-family: "Google Sans Display", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+.layout-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Google Sans Display", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+}
+
+.content {
+  flex: 1;
+  padding: 10px 0;
 }
 
 button {
@@ -115,10 +112,6 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
-}
-.content {
-  flex: 1;
-  padding: 10px 0;
 }
 
 .content-container {
