@@ -45,4 +45,7 @@ export default defineNuxtConfig({
       publicDir: path.join(__dirname, './dist')
     }
   },
+  experimental: {
+    payloadExtraction: false
+  }
 })

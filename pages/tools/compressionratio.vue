@@ -22,6 +22,29 @@
       <table>
         <thead>
           <tr>
+            <th>File size</th>
+            <th>Transfered</th>
+            <th>Encoding</th>
+          </tr>
+        </thead>
+        <tbody v-if="fileInfo">
+          <tr>
+            <td>{{ (fileInfo.originalSize / 1000).toFixed(1) }}kB</td>
+            <td>{{ (fileInfo.transferSize / 1000).toFixed(1) }}kB</td>
+            <td>{{ (fileInfo.algorithm) }}</td>
+          </tr>
+        </tbody>
+        <tbody v-else>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
             <th>Level</th>
             <th>Gzip</th>
             <th>Brotli</th>
@@ -35,8 +58,17 @@
               <template v-if="resultMap.get(`${algo}-${level}`)?.error">
                 <span class="error">Failed</span>
               </template>
+              <template v-else-if="!fileInfo"> - </template>
               <template v-else>
-                {{ getResultDisplay(algo, level) }}
+                <div v-if="getResult(algo, level)" class="compression-data">
+                <div class="data-row">
+                  <span class="percentage">{{ getResult(algo, level)!.percentage }}%</span>        </div>
+                <div class="data-row">
+                  <span class="size">{{ getResult(algo, level)!.size }}kB</span>        </div>
+                <div class="data-row">
+                  <span class="time">{{ getResult(algo, level)!.time }}ms</span>        </div>
+                </div>
+                <div v-else>-</div>
               </template>
             </td>
           </tr>
@@ -58,6 +90,11 @@ useHead({
 import { ref, computed, onMounted } from "vue";
 import { useReCaptcha } from "vue-recaptcha-v3";
 type Algorithm = "gzip" | "brotli" | "zstd";
+interface FileInfo {
+  originalSize: number;
+  transferSize: number;
+  algorithm: string;
+}
 interface CompressionResult {
   algorithm: "gzip" | "brotli" | "zstd";
   level: number;
@@ -65,6 +102,7 @@ interface CompressionResult {
   time?: number;
   error?: boolean;
 }
+const fileInfo = ref<FileInfo>();
 const algorithms = ["gzip", "brotli", "zstd"] as const;
 const levelRanges = {
   gzip: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -80,6 +118,7 @@ const totalTests = computed(
     levelRanges.zstd.length
 );
 const resultMap = ref(new Map<string, CompressionResult>());
+
 const initializeResults = () => {
   resultMap.value.clear();
   algorithms.forEach((algo) => {
@@ -97,14 +136,19 @@ onMounted(initializeResults);
 const allLevels = [...new Set(Object.values(levelRanges).flat())].sort(
   (a, b) => a - b
 );
-function getResultDisplay(algo: Algorithm, level: number) {
+const getResult = (algo: Algorithm, level: number) => {
   const key = `${algo}-${level}`;
-  const item = resultMap.value.get(key);
+  const result = resultMap.value.get(key);
+  if (!result || result.error || !result.size || !result.time) return null;
+  return {
+    percentage: ((result.size / originalSize.value) * 100).toFixed(1),
+    size: (result.size / 1000).toFixed(1),
+    time: (result.time * 1000).toFixed(0)
+  };
+};
 
-  if (!item || item.size === undefined) return "-";
-  if (item.error) return "Failed";
-  return `${item.size} bytes (${item.time?.toFixed(2) ?? "?"}s)`;
-}
+const originalSize = computed(() => fileInfo.value?.originalSize || 0);
+
 const result = ref<string | null>(null);
 const searchTerm = ref("");
 const recaptcha = useReCaptcha();
@@ -127,6 +171,7 @@ async function getData(token: string) {
   initializeResults();
   loading.value = true;
   completedTests.value = 0;
+  fileInfo.value = undefined;
   try {
     const res = await fetch("https://kira-api.libmbr.com/v1/compress/stream", {
       method: "POST",
@@ -136,35 +181,35 @@ async function getData(token: string) {
       },
       body: JSON.stringify({ query: searchTerm.value.trim() }),
     });
+    
     const reader = res.body?.getReader();
     const decoder = new TextDecoder();
     let buffer = "";
-    // eslint-disable-next-line no-constant-condition
     while (true) {
-      if (!reader) {
-        throw new Error("No readable stream in response body.");
-      }
+      if (!reader) break;
       const { done, value } = await reader.read();
       if (done) break;
-
       buffer += decoder.decode(value, { stream: true });
       const lines = buffer.split("\n");
       buffer = lines.pop() || "";
       lines.forEach((line) => {
         if (!line.trim()) return;
-
-        const parsed: CompressionResult = JSON.parse(line);
-        const key = `${parsed.algorithm}-${parsed.level}`;
-
-        resultMap.value.set(key, {
-          ...parsed,
-          time:
-            typeof parsed.time === "number"
-              ? Number(parsed.time.toFixed(2))
-              : undefined,
-        });
-
-        completedTests.value++;
+        const data = JSON.parse(line);
+        if (data.originalSize) {
+          fileInfo.value = {
+            originalSize: data.originalSize,
+            transferSize: data.transferSize,
+            algorithm: data.encoding
+          };
+        } 
+        else {
+          const key = `${data.algorithm}-${data.level}`;
+          resultMap.value.set(key, {
+            ...data,
+            time: data.time ? Number(data.time.toFixed(2)) : undefined,
+          });
+          completedTests.value++;
+        }
       });
     }
   } catch (e) {
@@ -176,6 +221,55 @@ async function getData(token: string) {
 }
 </script>
 <style scoped>
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .compression-data {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .label {
+    color: #666;
+    margin-right: 8px;
+  }
+  th, td {
+    padding: 0.3rem;
+  }
+  th:nth-child(1),
+  td:nth-child(1) { width: 20%; }
+  
+  th:nth-child(n+2),
+  td:nth-child(n+2) { width: 26%; }
+}
+.percentage,
+.size,
+.time {
+  display: inline-block;
+  min-width: 50px;
+  text-align: right;
+}
+.compression-data {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.compression-data span {
+  flex: 1;
+}
+.file-info {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
 .search-box .input-group {
   display: flex;
   gap: 0.5rem;

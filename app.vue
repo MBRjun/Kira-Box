@@ -98,6 +98,10 @@ body {
   padding: 10px 0;
 }
 
+input {
+  font-family: "Google Sans Display", sans-serif;
+}
+
 button {
   font-family: "Google Sans Display", sans-serif;
 }
