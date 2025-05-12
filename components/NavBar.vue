@@ -18,13 +18,13 @@
 
     <div v-if="showTools" class="tools-dropdown">
       <router-link
-        to="/tools/aplocator"
+        to="/tools/aplocator/"
         @click="closeTools"
         class="dropdown-item"
         >AP Locator</router-link
       >
       <router-link
-        to="/tools/compressionratio"
+        to="/tools/compressionratio/"
         @click="closeTools"
         class="dropdown-item"
         >Compression Ratio</router-link
