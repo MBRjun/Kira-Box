@@ -131,10 +131,10 @@ nav a.router-link-exact-active {
   margin-top: auto;
   background: white;
   font-size: 0.875rem;
-  color: #888;
+  color: #757575;
 }
 .recaptcha-notice a {
-  color: #888;
+  color: #757575;
   text-decoration: underline;
 }
 </style>

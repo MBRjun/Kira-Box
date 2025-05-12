@@ -6,13 +6,11 @@
       </router-link>
     </div>
     <div class="nav-right">
-      <button class="icon-button" @click="toggleTools">
+      <button class="icon-button" @click="toggleTools" aria-label="Tools">
         <IconMdiApps />
       </button>
-      <router-link to="/about">
-        <button class="icon-button">
-          <IconMdiInfo />
-        </button>
+      <router-link to="/about" class="icon-button" aria-label="About">
+        <IconMdiInfo />
       </router-link>
     </div>
 
@@ -51,7 +49,7 @@ function closeTools() {
 
 <style scoped>
 .navbar {
-  background-color: #4385f6;
+  background-color: #3070de;
   display: flex;
   justify-content: space-between;
   align-items: center;
