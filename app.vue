@@ -37,7 +37,7 @@ import NavBar from "@/components/NavBar.vue";
   font-family: "Google Sans Display";
   font-style: normal;
   font-weight: 400;
-  src: url("https://www.mbrjun.cn/assets/fonts/GoogleSansDisplay-LR.woff2")
+  src: url("https://lfs.libmbr.com/assets/fonts/GoogleSansDisplay-LR.woff2")
     format("woff2");
   font-display: swap;
 }
@@ -46,7 +46,7 @@ import NavBar from "@/components/NavBar.vue";
   font-family: "Google Sans Display";
   font-style: normal;
   font-weight: 700;
-  src: url("https://www.mbrjun.cn/assets/fonts/GoogleSansDisplay-BR.woff2")
+  src: url("https://lfs.libmbr.com/assets/fonts/GoogleSansDisplay-BR.woff2")
     format("woff2");
   font-display: swap;
 }
@@ -55,7 +55,7 @@ import NavBar from "@/components/NavBar.vue";
   font-family: "Google Sans Display";
   font-style: italic;
   font-weight: 300;
-  src: url("https://www.mbrjun.cn/assets/fonts/GoogleSansDisplay-LI.woff2")
+  src: url("https://lfs.libmbr.com/assets/fonts/GoogleSansDisplay-LI.woff2")
     format("woff2");
   font-display: swap;
 }
@@ -64,7 +64,7 @@ import NavBar from "@/components/NavBar.vue";
   font-family: "Google Sans Display";
   font-style: italic;
   font-weight: 700;
-  src: url("https://www.mbrjun.cn/assets/fonts/GoogleSansDisplay-BI.woff2")
+  src: url("https://lfs.libmbr.com/assets/fonts/GoogleSansDisplay-BI.woff2")
     format("woff2");
   font-display: swap;
 }
