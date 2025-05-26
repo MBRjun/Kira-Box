@@ -27,6 +27,12 @@
         class="dropdown-item"
         >Compression Ratio</router-link
       >
+      <router-link
+        to="/tools/cjkcomparison/"
+        @click="closeTools"
+        class="dropdown-item"
+        >CJK Comparison</router-link
+      >
     </div>
   </nav>
 </template>
