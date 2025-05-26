@@ -51,16 +51,6 @@ useHead({
 import { ref } from 'vue'
 
 const text = ref('')
-
-useHead({
-  title: 'CJK Comparison - Kira Box',
-  meta: [
-    {
-      name: 'description',
-      content: 'Compare CJK character glyphs across different languages.',
-    },
-  ],
-})
 </script>
 <style scoped>
 .app {
