@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxt dev --host",
+    "dev": "nuxt dev --host --https",
     "build": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

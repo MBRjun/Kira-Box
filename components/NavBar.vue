@@ -33,6 +33,12 @@
         class="dropdown-item"
         >CJK Comparison</router-link
       >
+      <router-link
+        to="/tools/dtmf/"
+        @click="closeTools"
+        class="dropdown-item"
+        >DTMF</router-link
+      >
     </div>
   </nav>
 </template>
