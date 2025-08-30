@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://kira.libmbr.com/</loc>
-        <lastmod>2025-05-26</lastmod>
+        <lastmod>2025-08-30</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -27,6 +27,18 @@
     <url>
         <loc>https://kira.libmbr.com/tools/cjkcomparison/</loc>
         <lastmod>2025-05-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://kira.libmbr.com/tools/dtmf/</loc>
+        <lastmod>2025-08-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://kira.libmbr.com/tools/electrictymeter/</loc>
+        <lastmod>2025-08-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
