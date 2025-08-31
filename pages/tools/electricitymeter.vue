@@ -69,7 +69,7 @@
             v-model.number="billingCycle"
             placeholder="Cycle (mo)"
             min="1"
-            @input="recalc"
+            @input="recalcBJ"
           />
         </div>
       </div>
@@ -118,7 +118,7 @@
             v-model="kWhInputBJ"
             placeholder="Energy (kWh)"
             @input="updateCostFromKWhBJ"
-            @blur="formatKWh"
+            @blur="formatKWhBJ"
           />
         </div>
 
@@ -129,7 +129,7 @@
             v-model="avgPowerInputBJ"
             placeholder="Power Avg (W)"
             @input="updateFromAvgPowerBJ"
-            @blur="formatAvgPower"
+            @blur="formatAvgPowerBJ"
           />
         </div>
 
@@ -140,7 +140,7 @@
             v-model="costInputBJ"
             placeholder="Costs (CNY)"
             @input="updateKWhFromCostBJ"
-            @blur="formatCost"
+            @blur="formatCostBJ"
           />
         </div>
 
@@ -151,7 +151,7 @@
             v-model.number="billingCycleBJ"
             placeholder="Cycle (mo)"
             min="1"
-            @input="recalc"
+            @input="recalcBJ"
           />
         </div>
       </div>
@@ -314,7 +314,7 @@ function calcCostFromKWhBJ(kwh: number): number {
   if (remain > 0) {
     // L2
     let d2 = Math.min(remain, tierLimitsBJ[1] - tierLimitsBJ[0])
-    total += d2 * tierRatesTJ[1]
+    total += d2 * tierRatesBJ[1]
     detailsBJ.value.push({ kWh: d2, rate: tierRatesBJ[1], cost: d2 * tierRatesBJ[1] })
     remain -= d2
   }
@@ -554,6 +554,22 @@ function recalcBJ() {
     kWhBJ.value = calcKWhFromCostBJ(costBJ.value);
     kWhInputBJ.value = kWhBJ.value.toFixed(2);
     calcAvgPowerBJ();
+  }
+}
+
+function formatKWhBJ() {
+  if (kWhInputBJ.value !== '') {
+    kWhInputBJ.value = parseFloat(kWhInputBJ.value).toFixed(2)
+  }
+}
+function formatCostBJ() {
+  if (costInputBJ.value !== '') {
+    costInputBJ.value = parseFloat(costInputBJ.value).toFixed(2)
+  }
+}
+function formatAvgPowerBJ() {
+  if (avgPowerInputBJ.value !== '') {
+    avgPowerInputBJ.value = parseFloat(avgPowerInputBJ.value).toFixed(2)
   }
 }
 
