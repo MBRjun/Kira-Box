@@ -40,10 +40,10 @@
         >DTMF</router-link
       >
       <router-link
-        to="/tools/electrictymeter/"
+        to="/tools/electricitymeter/"
         @click="closeTools"
         class="dropdown-item"
-        >Electricty Meter</router-link
+        >Electricity Meter</router-link
       >
     </div>
   </nav>

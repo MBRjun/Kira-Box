@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h1>Electricty Meter</h1>
+    <h1>Electricity Meter</h1>
     <p class="description">
       Power and Electricity Bill Costs calculater.
     </p>
@@ -193,7 +193,7 @@
 
 <script lang="ts" setup>
 useHead({
-  title: 'Electricty Meter - Kira Box',
+  title: 'Electricity Meter - Kira Box',
   meta: [
     {
       name: 'description',
