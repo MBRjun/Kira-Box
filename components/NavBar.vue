@@ -45,6 +45,12 @@
         class="dropdown-item"
         >Electricity Meter</router-link
       >
+      <router-link
+        to="/tools/converter/"
+        @click="closeTools"
+        class="dropdown-item"
+        >Converter</router-link
+      >
     </div>
   </nav>
 </template>
