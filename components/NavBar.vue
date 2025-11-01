@@ -9,7 +9,7 @@
       <button class="icon-button" @click="toggleTools" aria-label="Tools">
         <IconMdiApps />
       </button>
-      <router-link to="/about" class="icon-button" aria-label="About">
+      <router-link to="/about/" class="icon-button" aria-label="About">
         <IconMdiInfo />
       </router-link>
     </div>
