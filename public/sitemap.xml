@@ -42,4 +42,16 @@
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>https://kira.libmbr.com/tools/converter/</loc>
+        <lastmod>2025-11-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://kira.libmbr.com/tools/converter/hormone/</loc>
+        <lastmod>2025-11-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
 </urlset>
